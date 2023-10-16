@@ -1,10 +1,7 @@
-import sqlite3
-import sqlalchemy
-from sqlalchemy import sql
-from sqlalchemy import Column, Date, Integer, String, TEXT
-from db import Base, engine
+from flask_sqlalchemy import SQLAlchemy
 
-db = sqlalchemy.SQLAlchemy()
+
+db = SQLAlchemy()
 
 
 class Flats(db.Model):
@@ -24,6 +21,3 @@ class Flats(db.Model):
 
     def __repr__(self):
         return f'Flat {self.id}, price={self.bargainterms_price}'
-
-
-db.create_all()

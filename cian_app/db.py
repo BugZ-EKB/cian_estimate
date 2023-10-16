@@ -1,5 +1,3 @@
-import sqlalchemy.orm
-
 from sqlalchemy import create_engine, dialects
 from sqlalchemy.orm import sessionmaker,scoped_session,declarative_base
 
