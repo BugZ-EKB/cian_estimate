@@ -1,5 +1,4 @@
 import csv
-# from db import db_session
 from cian_app.model import Flats, db
 
 
@@ -33,8 +32,6 @@ def save_flats(data):
         )
         db.session.add(flat)
     db.session.commit()
-    # db_session.bulk_insert_mappings(Flats, data)
-    # db_session.commit()
 
 
 if __name__ == '__main__':
