@@ -161,3 +161,8 @@ cython_debug/
 
 # База данных
 app.db
+cian_app.db
+
+# Файлы с данными
+Cian_Data_demo_b2b.xlsx
+Cian_Data_test.xlsx
