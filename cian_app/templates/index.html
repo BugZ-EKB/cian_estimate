@@ -1,10 +1,54 @@
-<html>
-        <head>
-            <title>{{page_title}}</title>
-        </head>
-        <body>
-            <h1>
-                Здесь будет оценка недвижимости
-            </h1>
-        </body>
-    </html>
+{% extends "base.html" %}
+
+  {% block content %}
+    <div class="row">
+      <div class="col-8">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <div class="alert alert-warning" role="alert">
+            {% for message in messages %}
+              {{ message }}<br>
+            {% endfor %}
+          </div>
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Ссылка</th>
+          <th scope="col">Этаж</th>
+          <th scope="col">Этажей в доме</th>
+          <th scope="col">Количество комнат</th>
+          <th scope="col">Общая площадь</th>
+          <th scope="col">Цена</th>
+          <th scope="col">Год постройки</th>
+          <th scope="col">Жилая площадь</th>
+          <th scope="col">Площадь кухни</th>
+          <th scope="col">Район</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for flat in flat_list %}
+          <tr>
+            <th scope="row">{{ flat.id }}</th>
+            <td><h6><a href = "{{flat.link}}">{{ flat.link }}</a></h6></td>
+            <td>{{ flat.floor }}</td>
+            <td>{{ flat.floors_count }}</td>
+            <td>{{ flat.rooms_count }}</td>
+            <td>{{ flat.total_meters }}</td>
+            <th scope="row">{{ flat.price }}</th>
+            <td>{{ flat.year_of_construction }}</td>
+            <td>{{ flat.living_meters }}</td>
+            <td>{{ flat.kitchen_meters }}</td>
+            <td>{{ flat.district }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+        <hr />
+
+
+  {% endblock %}

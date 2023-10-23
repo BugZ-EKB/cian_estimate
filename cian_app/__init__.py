@@ -10,8 +10,9 @@ def create_app():
 
     @app.route('/')
     def index():
-        title = "Estate estimate"
-        return render_template('index.html', page_title=title)
+        title = 'Список квартир'
+        flat_list = Flats.query.all()
+        return render_template('index.html', page_title=title, flat_list=flat_list)
 
     with app.app_context():
         db.create_all()
