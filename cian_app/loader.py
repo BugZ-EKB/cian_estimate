@@ -3,7 +3,7 @@ from cian_app.model import Flats, db
 
 
 def read_csv(filename):
-    with open(filename, 'r', encoding='windows-1251') as f:
+    with open(filename, 'r', encoding='UTF8') as f:
         fields = [
             'link', 'floor', 'floors_count', 'rooms_count',
             'total_meters',	'price', 'year_of_construction',
