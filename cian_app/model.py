@@ -10,7 +10,7 @@ class Flats(db.Model):
     floors_count = db.Column(db.Integer)
     rooms_count = db.Column(db.Integer)
     total_meters = db.Column(db.Integer)
-    price = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Integer)
     year_of_construction = db.Column(db.Integer)
     living_meters = db.Column(db.Integer)
     kitchen_meters = db.Column(db.Integer)
