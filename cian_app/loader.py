@@ -38,8 +38,3 @@ def save_flats(data):
             )
             db.session.add(flat)
     db.session.commit()
-
-
-# if __name__ == '__main__':
-#     cian_data = read_csv('cian_parsing.csv')
-#     save_flats(cian_data)

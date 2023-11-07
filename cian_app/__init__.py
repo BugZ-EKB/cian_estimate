@@ -1,7 +1,7 @@
 from flask import Flask, flash, redirect, render_template, url_for
 
 from cian_app.model import db, Flats
-from cian_app.forms import FlatForm
+from cian_app.forms import EstimateForm, FlatForm
 
 
 def create_app():
@@ -30,6 +30,7 @@ def create_app():
             floors_count=flat_form.floors_count.data,
             rooms_count=flat_form.rooms_count.data,
             total_meters=flat_form.total_meters.data,
+            price=flat_form.price.data,
             year_of_construction=flat_form.year_of_construction.data,
             living_meters=flat_form.living_meters.data,
             kitchen_meters=flat_form.kitchen_meters.data,
@@ -39,6 +40,16 @@ def create_app():
         db.session.commit()
         flash('Квартира добавлена')
         return redirect(url_for('add_flat'))
+
+    @app.route('/estimate_flat')
+    def estimate_flat():
+        title = 'Оценить квартиру'
+        flat_form = EstimateForm()
+        return render_template('estimate_flat.html', page_title=title, form=flat_form)
+
+    @app.route('/process_estimate_flat', methods=['POST'])
+    def process_estimate_flat():
+        return redirect(url_for('index'))
 
     with app.app_context():
         db.create_all()

@@ -8,6 +8,8 @@ class FlatForm(FlaskForm):
                                validators=[DataRequired()], render_kw={'class': 'form-control'})
     total_meters = IntegerField('Общая площадь',
                                validators=[DataRequired()], render_kw={'class': 'form-control'})
+    price = IntegerField('Цена квартиры',
+                               validators=[DataRequired()], render_kw={'class': 'form-control'})
     living_meters = IntegerField('Жилая площадь',
                                validators=[DataRequired()], render_kw={'class': 'form-control'})
     kitchen_meters = IntegerField('Площадь кухни',
@@ -21,3 +23,7 @@ class FlatForm(FlaskForm):
     district = StringField('Район',
                                validators=[DataRequired()], render_kw={'class': 'form-control'})
     submit = SubmitField('Отправить', render_kw={'class': 'btn btn-success'})
+
+
+class EstimateForm(FlatForm):
+    submit = SubmitField('Рассчитать цену', render_kw={'class': 'btn btn-success'})
