@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+  {% block content %}
+    <div class="row">
+      <div class="col-4">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <div class="alert alert-warning" role="alert">
+            {% for message in messages %}
+              {{ message }}<br>
+            {% endfor %}
+          </div>
+          {% endif %}
+        {% endwith %}
+          <form action="{{ url_for('process_add_flat')}}" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.rooms_count.label }}<br>
+                {{ form.rooms_count() }}
+            </div>
+            <div class="form-group">
+                {{ form.total_meters.label }}<br>
+                {{ form.total_meters() }}
+            </div>
+            <div class="form-group">
+                {{ form.living_meters.label }}<br>
+                {{ form.living_meters() }}
+            </div>
+            <div class="form-group">
+                {{ form.kitchen_meters.label }}<br>
+                {{ form.kitchen_meters() }}
+            </div>
+            <div class="form-group">
+                {{ form.floor.label }}<br>
+                {{ form.floor() }}
+            </div>
+            <div class="form-group">
+                {{ form.floors_count.label }}<br>
+                {{ form.floors_count() }}
+            </div>
+                <div class="form-group">
+                {{ form.year_of_construction.label }}<br>
+                {{ form.year_of_construction() }}
+            </div>
+            <div class="form-group">
+                {{ form.district.label }}<br>
+                {{ form.district() }}
+            </div>
+            {{ form.submit }}
+          </form>
+      </div>
+      <div class="col-8">
+
+      </div>
+    </div>
+
+{% endblock %}
