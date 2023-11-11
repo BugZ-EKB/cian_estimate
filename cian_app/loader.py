@@ -9,10 +9,14 @@ def read_csv(filename):
             'total_meters',	'price', 'year_of_construction',
             'living_meters',	'kitchen_meters',	'district'
         ]
-        reader = csv.DictReader(f, fields, delimiter=';')
+        # reader = csv.DictReader(f, fields, delimiter=';')
+        reader = csv.DictReader(f, delimiter=';')
+
         flats_data = []
+
         for row in reader:
-            flats_data.append(row)
+            flat_data = {field: row[field] for field in fields}
+            flats_data.append(flat_data)
         return flats_data
 
 
@@ -34,8 +38,3 @@ def save_flats(data):
             )
             db.session.add(flat)
     db.session.commit()
-
-
-if __name__ == '__main__':
-    cian_data = read_csv('cian_parsing.csv')
-    save_flats(cian_data)
