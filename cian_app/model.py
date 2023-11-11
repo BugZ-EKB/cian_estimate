@@ -16,8 +16,8 @@ class Flats(db.Model):
     kitchen_meters = db.Column(db.Integer)
     district = db.Column(db.String)
 
-    def __repr__(self):
-        if self.district:
-            return f'Квартира {self.id}, цена составляет {self.price} руб., район - {self.district}'
-        else:
-            return f'Квартира {self.id}, цена составляет {self.price} руб., информация по району отсутствует'
+    # def __repr__(self):
+    #     if self.district:
+    #         return f'Квартира {self.id}, цена составляет {self.price} руб., район - {self.district}'
+    #     else:
+    #         return f'Квартира {self.id}, цена составляет {self.price} руб., информация по району отсутствует'

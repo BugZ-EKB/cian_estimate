@@ -26,4 +26,6 @@ class FlatForm(FlaskForm):
 
 
 class EstimateForm(FlatForm):
+    district = StringField('Район',
+                               validators=[DataRequired()], render_kw={'class': 'form-control'})
     submit = SubmitField('Рассчитать цену', render_kw={'class': 'btn btn-success'})
